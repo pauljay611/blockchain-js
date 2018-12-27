@@ -6,6 +6,7 @@ const Blockchain = require('./blockchain');
 const uuid = require('uuid/v1');
 const port = process.argv[2];
 const rp = require('request-promise');
+const path = require('path');
 
 const nodeAddress = uuid().split('-').join('');
 
@@ -14,7 +15,7 @@ const bitcoin = new Blockchain();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-
+app.use('/static',express.static('dist'));
 
 // get entire blockchain
 app.get('/blockchain', function (req, res) {
@@ -259,7 +260,6 @@ app.get('/address/:address', function(req, res) {
 	});
 });
 
-
 app.get('/block-explorer', function(req, res){
     res.sendFile('./block-explorer/index.html', {root: __dirname});
 });
@@ -280,10 +280,13 @@ app.get('/block-mine', function(req, res){
     res.sendFile('./block-mine/index.html', {root: __dirname});
 });
 
+app.get('/block', function(req, res){
+    res.sendFile(path.resolve('index.html'));
+});
+
 app.listen(port, function() {
 	console.log(`Listening on port ${port}...`);
 });
-
 
 
 
