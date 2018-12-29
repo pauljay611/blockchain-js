@@ -1,5 +1,9 @@
 # blockchain-js 
 User Javascript for simple blockchain simulation
+## Tools
+- express.js
+- vue.js
+- webpack4
 ## API
 > See your blockchain
 - /blockchain
@@ -18,13 +22,12 @@ User Javascript for simple blockchain simulation
 - /register-nodes-bulk
 ---
 
-## Explorer
-> Search your chain
-- /block-explorer
+## 安裝
+- npm run build
 
 ## 如何使用
-0. 先同步節點 /register-and-broadcast-node
-1. 發起交易 /transaction
+0. 先同步節點 /BlockData
+1. 發起交易 /BlockTransaction
 2. 生成待驗證之交易 
 ```
 "pendingTransactions":[{}],"currentNodeUrl":"http://localhost:3001","networkNodes":[]
@@ -33,7 +36,7 @@ User Javascript for simple blockchain simulation
 ```
 {"note":"New block mined successfully!","block":{"index":2,"timestamp":1544953463473,"transactions":[{}],"nonce":204174,"hash":"000026ba598492e722df4cf5473603a4fc1e0b946d0021a40c8f924ec006a0d0","previousBlockHash":"0"}}
 ```
-4. 使用 /block-explorer查看
+4. 使用 /BlockExplorer查看
 ![](https://i.imgur.com/hB7dKN0.png)
 
 ## 操作

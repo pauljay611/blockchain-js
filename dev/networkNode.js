@@ -11,11 +11,18 @@ const path = require('path');
 const nodeAddress = uuid().split('-').join('');
 
 const bitcoin = new Blockchain();
-
+var history = require('connect-history-api-fallback');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/static',express.static('dist'));
+app.use(history({
+	verbose: true,
+	index: '/'
+}));
+app.get('/', function(req, res){
+    res.sendFile(path.resolve('index.html'));
+});
 
 // get entire blockchain
 app.get('/blockchain', function (req, res) {
@@ -268,9 +275,9 @@ app.get('/block-wallet', function(req, res){
     res.sendFile('./block-wallet/index.html', {root: __dirname});
 });
 
-app.get('/block-chaindata', function(req, res){
-    res.sendFile('./block-chaindata/index.html', {root: __dirname});
-});
+// app.get('/block-chaindata', function(req, res){
+//     res.sendFile('./block-chaindata/index.html', {root: __dirname});
+// });
 
 app.get('/block-transaction', function(req, res){
     res.sendFile('./block-transaction/index.html', {root: __dirname});
@@ -280,9 +287,6 @@ app.get('/block-mine', function(req, res){
     res.sendFile('./block-mine/index.html', {root: __dirname});
 });
 
-app.get('/block', function(req, res){
-    res.sendFile(path.resolve('index.html'));
-});
 
 app.listen(port, function() {
 	console.log(`Listening on port ${port}...`);
