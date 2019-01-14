@@ -4,19 +4,19 @@
       <div class="header">
         <ul class="nav justify-content-center">
           <li class="nav-item">
-            <router-link class="nav-link" to="/BlockData">Block Data</router-link>
+            <router-link class="nav-link" to="/BlockData" active-class="active">Block Data</router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/BlockSend">Send Data</router-link>
+            <router-link class="nav-link" to="/BlockSend" active-class="active">Send Data</router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/BlockExplorer">Block Explorer</router-link>
+            <router-link class="nav-link" to="/BlockExplorer" active-class="active">Block Explorer</router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/BlockTransaction">Block Transaction</router-link>
+            <router-link class="nav-link" to="/BlockTransaction" active-class="active">Block Transaction</router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/BlockMining">Block Mining</router-link>
+            <router-link class="nav-link" to="/BlockMining" active-class="active">Block Mining</router-link>
           </li>
         </ul>
       </div>
@@ -41,6 +41,14 @@ body {
 }
 .header {
   margin-bottom: 50px;
+}
+.header > ul > li > a:hover{
+  background-color: cadetblue;
+  color: white;
+}
+.active{
+  background-color: cadetblue;
+  color: white;
 }
 .container {
   padding-top: 50px;
